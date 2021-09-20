@@ -1,0 +1,19 @@
+Sub table_to_list()
+
+On Error GoTo eh
+
+Do
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Selection.Cut
+    ActiveCell.Offset(1, -1).Range("A1").Select
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    ActiveSheet.Paste
+Loop
+
+eh:
+ Range(Selection, Selection.End(xlUp)).Select
+ 
+End Sub
